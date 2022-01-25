@@ -47,7 +47,7 @@ Support GCC, MDK4 and MDK5 IDE/compilers. More information of these compiler ver
 | IDE/Compiler  | Tested version            |
 | ---------- | ---------------------------- |
 | MDK5       | 5.26.2                       |
-| GCC        | GCC 5.4.1 20160919 (release) |
+| GCC        | 6-2017-q1-update             |
 
 Notice: Please install ICE driver for development.
 
@@ -93,3 +93,5 @@ You can use Tera Term terminate emulator (or other software) to type commands of
 * [Board Schematic](https://www.nuvoton.com/resource-download.jsp?tp_GUID=HL1020201117191514)
 * [Download NK-N9H30 Quick Start Guide](https://www.nuvoton.com/resource-download.jsp?tp_GUID=UG1320210329155300)
 * [Download NuWriter](https://github.com/OpenNuvoton/NUC970_NuWriter)
+* [Download Windows 32-bit 6-2017-q1-update ARM GCC](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads/6-2017-q1-update)
+* [Download RT-Thread env integrated toolchain](https://download-sh-cmcc.rt-thread.org:9151/www/aozima/env_released_1.2.0.7z)
