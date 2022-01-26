@@ -162,7 +162,7 @@ You can use Tera Term terminate emulator (or other software) to type commands of
 [![Serial settings](https://i.imgur.com/5NYuSNM.png "Serial settings")](https://i.imgur.com/5NYuSNM.png "Serial settings")
 
 ## 6. Purchase
-* [Nuvoton Direct](https://direct.nuvoton.com/en/numaker-emwin-n9h30)
+* [Nuvoton Direct](https://direct.nuvoton.com/en/numaker-hmi-n9h30)
 
 ## 7. Resources
 * [Board Schematic](https://www.nuvoton.com/resource-download.jsp?tp_GUID=HL1020201117191514)
