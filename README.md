@@ -153,7 +153,7 @@ Before doing the action, don't forget plug-in USB line with CON14 on board and s
 Write UBOOT ... Passed
 Verify UBOOT... Passed
 ```
-After action done, don't also forget to switch all switches on SW4 to OFF, then press Reset button(SW5). Let internal booting routine enter SPI booting mode and reset board.
+After action done, don't also forget to switch all switches on SW4 to OFF, then press Reset button(SW5). Let internal booting routine enter SPI booting mode.
 
 
 ## 5. Test
