@@ -81,15 +81,90 @@ Execute Address: 0x0<br>
 Enjoy!! <br>
 <br>
 
-## 4. Test
+
+## 4. Program firmware using Linux NuWriter CMD utlity
+Tested on UBUNTU 20.04.1 distro
+
+### Build NUC970_NuWriter_CMD
+```bash
+# Install related dependency libraries and host-utility for building.
+sudo apt-get install libusb-1.0-0-dev
+sudo apt-get install automake
+sudo apt-get install pkg-config
+
+# Clone sources.
+git clone https://github.com/wosayttn/NUC970_NuWriter_CMD
+cd NUC970_NuWriter_CMD
+
+# Specify installation path.
+./configure --prefix=$PWD/install
+
+# Run autoreconf if you get some trouble on make running.
+autoreconf -ivf
+
+# Build the utility
+make
+
+# Install the utility and config into specified PREFIX folder.
+make install
+
+# Install udev rule.
+sudo install -Dm644 99-nuvoton_isp.rules /etc/udev/rules.d/99-nuvoton_isp.rules
+
+# Check the udev rule installed or not
+ls -al /etc/udev/rules.d/99-nuvoton_isp.rules
+
+# Restart udev service
+sudo service udev restart
+cd install/bin
+```
+
+### List all supported DDR model
+```bash
+./nuwriter -d show
+NUC975DK62Y.ini
+NUC976DK41Y.ini
+NUC972DF62Y.ini
+NUC976DK51Y.ini
+NUC977DK41Y.ini
+NUC977DK51Y.ini
+NUC97xDx61Y_360M.ini
+NUC973DF62Y.ini
+NUC972DF61Y.ini
+NUC972DF71Y.ini
+NUC977DK62Y.ini
+NUC975DK51Y.ini
+NUC972DF51Y.ini
+NUC976DK62Y.ini
+```
+
+### 4.1 Download rtthread.bin to SDRAM and run it.
+Before doing the action, don't forget plug-in USB line with CON14 on board and switch all switches on SW4 to ON, then press Reset button(SW5). Let internal booting routine enter USB booting mode.
+
+```bash
+./nuwriter -m sdram -d NUC97xDx61Y_360M.ini -a 0x0 -w rtthread.bin -n
+```
+
+## 4.2 Flash rtthread.bin into SPI flash. (Need wait a moment)
+Before doing the action, don't forget plug-in USB line with CON14 on board and switch all switches on SW4 to ON, then press Reset button(SW5). Let internal booting routine enter USB booting mode.
+
+```bash
+./nuwriter -m spi -d NUC97xDx61Y_360M.ini -t uboot -a 0x0 -w rtthread.bin -v
+Write UBOOT ... Passed
+Verify UBOOT... Passed
+```
+After action done, don't also forget to switch all switches on SW4 to OFF, then press Reset button(SW5). Let internal booting routine enter SPI booting mode and reset board.
+
+
+## 5. Test
 You can use Tera Term terminate emulator (or other software) to type commands of RTT. All parameters of serial communication are shown in below image. Here, you can find out the corresponding port number of Nuvoton Virtual Com Port in window device manager.
 
 [![Serial settings](https://i.imgur.com/5NYuSNM.png "Serial settings")](https://i.imgur.com/5NYuSNM.png "Serial settings")
 
-## 5. Purchase
+## 6. Purchase
 * [Nuvoton Direct](https://direct.nuvoton.com/en/numaker-emwin-n9h30)
 
-## 6. Resources
+## 7. Resources
 * [Board Schematic](https://www.nuvoton.com/resource-download.jsp?tp_GUID=HL1020201117191514)
 * [Download NK-N9H30 Quick Start Guide](https://www.nuvoton.com/resource-download.jsp?tp_GUID=UG1320210329155300)
 * [Download NuWriter](https://github.com/OpenNuvoton/NUC970_NuWriter)
